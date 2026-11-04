@@ -1,0 +1,535 @@
+# CS50P – Lecture 0: Functions, Variables and Hello, World!
+
+**Course:** Harvard CS50's Introduction to Programming with Python (CS50P)  
+**Lecture:** 0 – Functions, Variables  
+**Learning Progress:** First study session  
+**Status:** Completed
+
+## 1. Introduction to Programming
+
+My first lesson introduced me to the fundamentals of Python programming. I started by learning how to write and execute a simple Python program.
+
+The first program was:
+
+```python
+print("hello, world")
+```
+
+Although it is a very simple program, it introduces some important programming concepts.
+
+### Functions
+
+A function is a reusable piece of code that performs a particular task.
+
+In the example above, `print()` is a built-in Python function. Its purpose is to display information on the screen.
+
+Functions are designed by developers to perform specific tasks, but programmers can decide what information they want to pass to them and how to use them in their programs.
+
+### Arguments
+
+Arguments are the values that we provide to a function when we call it.
+
+For example:
+
+```python
+print("hello, world")
+```
+
+Here:
+- `print()` is the function.
+- `"hello, world"` is the argument.
+
+The argument tells the function what information we want it to display.
+
+### Side Effects
+
+A side effect is something that happens when a function is executed.
+
+In this example, the side effect of calling `print()` is that the text `hello, world` appears in the terminal.
+
+## 2. Bugs and Debugging
+
+A bug is an error or problem in a program that causes it to behave differently from what we intended.
+
+Even the smallest mistakes can cause problems, such as:
+- Forgetting a closing parenthesis.
+- Missing quotation marks.
+- Using incorrect syntax.
+- Misspelling a function name.
+
+Programming involves identifying and fixing these mistakes, a process known as debugging.
+
+There are built-in tools and development environments that can help identify errors. However, as programs become more complicated, finding and fixing bugs can become more challenging.
+
+## 3. Code Editors and the Terminal
+
+I learned that applications such as Microsoft Word and Excel are not designed for writing and executing code. Although they can contain text, they do not provide the features needed for programming.
+
+Instead, programmers use code editors and integrated development environments (IDEs).
+
+For this course, I am using **Visual Studio Code (VS Code)**.
+
+VS Code makes programming easier through features such as:
+- Syntax highlighting, which displays different parts of the code in different colours.
+- Error detection and helpful suggestions.
+- Code formatting and organisation.
+- Integration with a terminal.
+
+### The Terminal
+
+The terminal allows us to interact with the computer through text commands.
+
+I learned how to execute a Python file using:
+
+```bash
+python hello.py
+```
+
+This tells Python to execute the file named `hello.py`.
+
+The terminal is useful for programmers, although it may not be the most user-friendly way for everyone to interact with a program.
+
+### Can We Run Code Without a Terminal?
+
+Yes!
+
+Programs can also be developed with a Graphical User Interface (GUI).
+
+A GUI allows users to interact with a program through visual elements such as:
+- Buttons.
+- Text fields.
+- Menus.
+- Windows.
+
+For example, instead of entering information through a terminal, a user could type their name into a text box and click a button.
+
+We will explore this concept later in the course.
+
+## 4. Introducing the `input()` Function
+
+After creating a program that displays a generic greeting, I learned how to make it more interactive by asking the user for their name.
+
+First, I could display a question:
+
+```python
+print("What's your name?")
+```
+
+Then, I could use the `input()` function to collect the user's response:
+
+```python
+input()
+```
+
+When this function runs, the terminal displays a blinking cursor and waits for the user to enter something.
+
+However, Python provides a simpler way to do this by passing the question directly as an argument to `input()`:
+
+```python
+input("What's your name? ")
+```
+
+This displays the question and waits for the user's response.
+
+### Return Values
+
+A return value is the result that a function gives back to the program after it executes.
+
+The `input()` function collects information from the user and returns that information so that the program can use it.
+
+By default, `input()` returns the user's response as a string (text).
+
+However, simply collecting the information is not enough. We need somewhere to store it.
+
+This introduces the concept of variables.
+
+## 5. Variables
+
+A variable is a named place in a program where we can store a value.
+
+Variables allow us to store and reuse information instead of having to write the same values directly into our code.
+
+For example:
+
+```python
+name = input("What's your name? ")
+```
+
+Here:
+- `name` is the variable.
+- `input()` asks the user for their name.
+- The user's response is returned by `input()`.
+- The `=` operator assigns the returned value to the variable.
+
+### Understanding the Assignment Operator (`=`)
+
+In Python, the `=` symbol does not mean equality in the mathematical sense.
+
+Instead, it is the assignment operator.
+
+It assigns the value on the right-hand side to the variable on the left-hand side.
+
+For example:
+
+```python
+name = "Anam"
+```
+
+This assigns the string `"Anam"` to the variable `name`.
+
+We can then use that variable elsewhere in our program.
+
+## 6. Using Variables in the Greeting Program
+
+Now that we can collect and store the user's name, we can use it to create a personalised greeting.
+
+For example:
+
+```python
+name = input("What's your name? ")
+
+print("hello, name")
+```
+
+However, this does not work as intended.
+
+The output would be:
+
+```text
+hello, name
+```
+
+This happens because anything inside quotation marks is treated as literal text.
+
+Python does not recognise `name` as a variable when it is inside the quotation marks.
+
+We need to reference the variable without quotation marks:
+
+```python
+name = input("What's your name? ")
+
+print("hello,")
+print(name)
+```
+
+The output would look like:
+
+```text
+What's your name? Anam
+hello,
+Anam
+```
+
+This works, but the greeting appears on two separate lines.
+
+There are several ways to improve it.
+
+## 7. String Concatenation
+
+A string is a sequence of characters used to represent text.
+
+String concatenation means joining two or more strings together.
+
+Python uses the `+` operator to concatenate strings.
+
+For example:
+
+```python
+name = input("What's your name? ")
+
+print("Hello, " + name)
+```
+
+If the user enters `Anam`, the output will be:
+
+```text
+What's your name? Anam
+Hello, Anam
+```
+
+Notice the space after the comma inside the quotation marks. Without it, the output would be `Hello,Anam`.
+
+This is one way to combine text with a variable.
+
+## 8. Passing Multiple Arguments to `print()`
+
+Another way to display the greeting is to pass multiple arguments to the `print()` function.
+
+For example:
+
+```python
+print("Hello,", name)
+```
+
+This produces:
+
+```text
+Hello, Anam
+```
+
+By default, the `print()` function separates multiple arguments with a space.
+
+Therefore, we do not need to add an extra space inside the first string.
+
+### Understanding Parameters and Arguments
+
+These two terms are related but have different meanings:
+
+- **Parameters:** The variables listed in a function's definition that receive values.
+- **Arguments:** The actual values passed to a function when it is called.
+
+For example, `print()` has a parameter called `sep`, which controls how multiple arguments are separated.
+
+The default separator is a space.
+
+## 9. The `end` Parameter
+
+By default, the `print()` function automatically moves to a new line after displaying its output.
+
+This happens because its `end` parameter is set to a newline character (`\n`) by default.
+
+We can change this behaviour by providing a different value.
+
+For example:
+
+```python
+print("Hello, ", end="")
+print(name)
+```
+
+By setting `end=""`, we tell Python not to add a newline after the first print statement.
+
+The result is:
+
+```text
+Hello, Anam
+```
+
+This allows us to control how the output is displayed.
+
+## 10. Single Quotes, Double Quotes and Escape Characters
+
+Python allows us to use either single quotation marks or double quotation marks to represent strings.
+
+Both of the following are valid:
+
+```python
+print("Hello, world")
+print('Hello, world')
+```
+
+However, we should try to remain consistent with our quotation style.
+
+### Using Quotes Inside Strings
+
+What happens if we want to include quotation marks within a string?
+
+For example:
+
+```python
+print("Hello, "friend"")
+```
+
+This causes a syntax error because Python gets confused about where the string begins and ends.
+
+There are two ways to solve this.
+
+**Method 1: Use different quotation marks**
+
+```python
+print('Hello, "friend"')
+```
+
+**Method 2: Use an escape character**
+
+A backslash (`\`) is an escape character that allows us to include special characters within strings.
+
+```python
+print("Hello, \"friend\"")
+```
+
+Both methods produce:
+
+```text
+Hello, "friend"
+```
+
+## 11. F-Strings
+
+Another way to combine strings and variables is by using formatted string literals, commonly known as f-strings.
+
+An `f` is placed immediately before the opening quotation mark to tell Python that the string contains expressions that should be evaluated.
+
+For example:
+
+```python
+name = input("What's your name? ")
+
+print(f"Hello, {name}")
+```
+
+The curly brackets `{}` indicate where the variable should be inserted.
+
+If the user enters `Anam`, the output will be:
+
+```text
+Hello, Anam
+```
+
+Simply writing `{name}` inside an ordinary string will not work. We need the `f` prefix.
+
+F-strings provide a clean and convenient way to combine text with variables.
+
+## 12. Cleaning Up User Input
+
+Users do not always enter information exactly as we expect.
+
+For example, someone might accidentally enter extra spaces before or after their name, or type their name entirely in lowercase.
+
+Python provides built-in string methods that help us clean and format this information.
+
+### The `strip()` Method
+
+The `strip()` method removes whitespace from the beginning and end of a string.
+
+Example:
+
+```python
+name = name.strip()
+```
+
+It removes unnecessary spaces around the name, but does not remove spaces between words.
+
+### The `capitalize()` Method
+
+The `capitalize()` method makes the first character uppercase and converts the remaining characters to lowercase.
+
+Example:
+
+```python
+name = name.capitalize()
+```
+
+### The `title()` Method
+
+The `title()` method capitalises the first character of each word.
+
+Example:
+
+```python
+name = name.title()
+```
+
+This is useful when working with full names.
+
+### Combining String Methods
+
+Instead of writing separate lines for each operation, we can combine the methods:
+
+```python
+name = name.strip().title()
+```
+
+Python executes these methods in sequence.
+
+First, it removes whitespace from the beginning and end. Then, it capitalises each word.
+
+We can simplify the program even further by combining everything:
+
+```python
+name = input("What's your name? ").strip().title()
+
+print(f"Hello, {name}")
+```
+
+This is a much cleaner way to write the same program.
+
+## 13. Comments
+
+Comments are notes written inside code to explain what a particular section does or to make the programmer's intentions clearer.
+
+Python ignores comments when executing the program.
+
+A single-line comment starts with the `#` symbol.
+
+Example:
+
+```python
+# Ask the user for their name
+name = input("What's your name? ")
+
+# Display a personalised greeting
+print(f"Hello, {name}")
+```
+
+Comments are especially useful when working with longer programs because they help us understand the purpose and structure of the code.
+
+They can also be used when planning the logic of a program, in a similar way to pseudocode or a simple to-do list.
+
+### Multiline Notes
+
+Python also supports triple-quoted strings:
+
+```python
+"""
+This is a multiline string.
+It can span several lines.
+"""
+```
+
+These are often used for documentation, such as docstrings. They are not technically comments, even though they can look similar.
+
+## 14. Key Concepts Learned
+
+| Concept | What I Learned |
+|---|---|
+| Functions | Reusable blocks of code that perform tasks |
+| Arguments | Values passed to functions |
+| Side effects | Changes or actions produced by executing a function |
+| Bugs | Errors or problems in a program |
+| Debugging | Finding and fixing errors |
+| Terminal | A way to interact with a computer using commands |
+| GUI | A visual interface for interacting with programs |
+| Return values | Results returned by functions |
+| Variables | Named references used to store and work with values |
+| Assignment (`=`) | Assigning a value to a variable |
+| Strings | Sequences of characters representing text |
+| Concatenation | Joining strings together |
+| Parameters | Variables defined by a function to receive arguments |
+| F-strings | A way to insert variables and expressions into strings |
+| Escape characters | Characters such as `\` that change how certain characters are interpreted |
+| Comments | Notes that help explain code |
+| String methods | Built-in operations for manipulating strings |
+
+## 15. Final Program
+
+After learning these concepts, I can now write a simple interactive Python program that asks for a user's name, cleans up the input and displays a personalised greeting.
+
+```python
+# Ask the user for their name
+name = input("What's your name? ").strip().title()
+
+# Display a personalised greeting
+print(f"Hello, {name}")
+```
+
+Example output:
+
+```text
+What's your name? anam rifzan
+Hello, Anam Rifzan
+```
+
+## 16. Reflection – First Learning Session
+
+This was my first proper introduction to Python programming through Harvard's CS50P.
+
+I started with a simple "Hello, World!" program and gradually learned how to make it interactive by collecting user input, storing information in variables and displaying personalised output.
+
+One of the most interesting things I learned was how small changes in syntax can affect the entire program. I also learned that there are different ways to achieve the same result, and that choosing cleaner and more efficient approaches makes code easier to understand.
+
+I'm beginning to understand how functions, arguments, return values and variables work together.
+
+I look forward to continuing the course, practising what I've learned and eventually applying Python to cybersecurity, automation and other practical projects.
+
+**Learning status:** CS50P – Lecture 0, first study session completed. 🐍
